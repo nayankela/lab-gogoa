@@ -1,6 +1,6 @@
 package testing;
 
-/* Uncomment the below code to test your application
+//Uncomment the below code to test your application
 
 import static org.junit.Assert.*;
 
@@ -19,7 +19,7 @@ public class TestFareCalculator {
 
 	@Test
 	public void testBook() {
-		
+
 		LocalDate ld1 = LocalDate.of(2020, 02, 5);
 		LocalDate ld2 = LocalDate.of(2020, 02, 8);
 		Hotel hotel1 = new Hotel(2, "nonac", 20000, "single", ld1, ld2);
@@ -45,48 +45,44 @@ public class TestFareCalculator {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testBusMethod() {
 		LocalDate ld1 = LocalDate.of(2020, 02, 5);
-		Bus bus = new Bus(2, 1500, "acsleeper", ld1);
-		assertEquals(3000,fare.book(bus),0);
+		Bus bus = new Bus(2, "acsleeper", 1500, ld1);
+		assertEquals(3000, fare.book(bus), 0);
 		try {
-			Bus bus1 = new Bus(0, 0, null, null);
+			Bus bus1 = new Bus(0, null, 0, null);
 			fare.book(bus1);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testFlightMethod() {
 		LocalDate ld = LocalDate.of(2020, 02, 03);
 		LocalDate ld1 = LocalDate.of(2020, 02, 05);
-		Flight flight = new Flight(2, 10000, "economy", ld, ld1,"one-way");
-		assertEquals(20000,fare.book(flight),0);
+		Flight flight = new Flight(2, "economy", 10000, ld, ld1, "one-way");
+		assertEquals(20000, fare.book(flight), 0);
 		try {
-			Flight flight1 = new Flight(0, 0, null, null, null,null);
+			Flight flight1 = new Flight(0, null, 0, null, null, null);
 			fare.book(flight1);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testTrainMethod() {
 		LocalDate ld = LocalDate.of(2020, 02, 03);
-		Train train = new Train(2,1500,"nonac",ld);
-		assertEquals(3000,fare.book(train),0);
+		Train train = new Train(2, "nonac", 1500, ld);
+		assertEquals(3000, fare.book(train), 0);
 		try {
-			Train train1 = new Train(0,0,null,null);
+			Train train1 = new Train(0, null, 0, null);
 			fare.book(train1);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 }
-*/
